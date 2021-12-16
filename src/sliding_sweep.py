@@ -10,14 +10,14 @@ def get_data(input):
 
 def calc_height_diff(list):
     height_list = []
-    status = ['decreasing', 'increasing', 'steady']
-    for number, number2 in zip(list[:-1], list[1:]):
-            if number2 > number:
-                height_list.append(status[1])
-            elif number2 == number:
-                height_list.append(status[2])
-            else:
-                height_list.append(status[0])
+    status = ['decreasing', 'increasing', 'no change']
+    for number, number2, number3, number4 in zip(list[:-1], list[1:], list[2:], list[3:]):
+        if ((number4 + number3 + number2) > (number3 + number2 + number)):
+            height_list.append(status[1])
+        elif ((number4 + number3 + number2) == (number3 + number2 + number)):
+            height_list.append(status[2])
+        else:
+            height_list.append(status[0])
     print(len(height_list))
     return height_list
 
